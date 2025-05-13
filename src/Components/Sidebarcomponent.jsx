@@ -14,7 +14,7 @@ function Sidebarcomponent({ logo, name, link }) {
   return (
     <Link
       to={link}
-      className="flex items-center w-max px-4 py-2 text-white hover:bg-gray-600 transition-colors duration-200"
+      className="flex items-center w-1/8 px-4 py-2 text-white hover:bg-gray-600 transition-colors duration-200"
       onClick={name==='Logout'?handleLogout:undefined}    
     >
       <span className="mr-3">{logo}</span>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-function Header() {
+function Header({setSidebar}) {
+  
   const [emoji,setemoji]=useState('🌸');
   let array=['🌸','💄','🫦','💀','🗿','💔','👀','😋','😍','😎','🔥','🫣'];
   useEffect(() => {
@@ -12,8 +13,14 @@ function Header() {
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, []);
-  return (
-    <div className='fixed w-full h-20 bg-header font-primary text-text-primary flex items-center justify-center text-3xl font-bold'>{emoji} MSU CHAN {emoji} </div>
+  function toggle(){setSidebar(prev=>!prev);}
+  return (<>
+  <div className='fixed w-full h-20 bg-header flex items-center justify-center'>
+    <button onClick={toggle} className='absolute left-4 bg-surface font-primary h-10 w-10 text-text-primary'>🍔</button>
+    <div className=' font-primary text-text-primary  text-3xl font-bold'>{emoji} MSU CHAN {emoji} </div>
+    <button onClick={()=>{window.location.href='/rules'}}  className='absolute right-4 bg-surface font-primary text-text-primary'>Rules</button>
+   </div>
+    </>
   )
 }
 
