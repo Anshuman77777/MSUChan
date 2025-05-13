@@ -16,7 +16,7 @@ function Sidebar() {
       
     <div className=' fixed h-screen w-[150px] bg-sidebar flex flex-col items-center'>
     
-      <div className='text-4xl font-bold font-primary text-text-secondary'>{username}</div>
+      <div className='text-xl font-bold font-primary text-text-secondary'>{username}</div>
      <ul>
     {Sidebarcontent.map((res,index) =>
       {

@@ -65,7 +65,7 @@ function Signup() {
         <input
           type="text"
           name="username"
-          placeholder="Username"
+          placeholder="Username(Cant be changed later)"
           value={formData.username}
           onChange={handleChange}
           required

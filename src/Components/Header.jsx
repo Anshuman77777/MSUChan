@@ -16,9 +16,9 @@ function Header({setSidebar}) {
   function toggle(){setSidebar(prev=>!prev);}
   return (<>
   <div className='fixed w-full h-20 bg-header flex items-center justify-center'>
-    <button onClick={toggle} className='absolute left-4 bg-surface font-primary h-10 w-10 text-text-primary'>🍔</button>
+    <button onClick={toggle} className='absolute left-4 bg-surface font-primary h-10 w-20 text-text-primary'>MENU</button>
     <div className=' font-primary text-text-primary  text-3xl font-bold'>{emoji} MSU CHAN {emoji} </div>
-    <button onClick={()=>{window.location.href='/rules'}}  className='absolute right-4 bg-surface font-primary text-text-primary'>Rules</button>
+    <button onClick={()=>{window.location.href='/rules'}}  className='absolute right-4 bg-surface font-primary h-10 w-20 text-text-primary'>RULES</button>
    </div>
     </>
   )
