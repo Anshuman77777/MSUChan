@@ -109,6 +109,9 @@ function Signup() {
           Sign Up
         </button>
         <Link to={"/login"}><div className='flex justify-center h-full text-blue-500'>Log In</div></Link>
+    <div class="text-sm text-text-primary italic p-2 ">
+ Keep it low-key — real names don’t belong in usernames...
+</div>
 
       </form>
 
