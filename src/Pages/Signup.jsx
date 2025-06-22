@@ -56,10 +56,12 @@ function Signup() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
+    
       <form
         onSubmit={handleSubmit}
         className="bg-surface p-8 rounded-lg shadow-md w-full max-w-sm"
       >
+         <h1 className='text-red-400'>Note: Only your username will be visible to other users</h1>
         <h2 className="text-2xl font-bold mb-6 text-center text-text-primary font-primary">Sign Up</h2>
 
         <input
@@ -69,7 +71,7 @@ function Signup() {
           value={formData.username}
           onChange={handleChange}
           required
-          className="w-full font-secondary px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full font-secondary px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-300"
         />
 
         <input
@@ -79,7 +81,7 @@ function Signup() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 font-secondary mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 font-secondary mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-300"
         />
 
         <input
@@ -89,7 +91,7 @@ function Signup() {
           value={formData.password}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-300"
         />
 
         <input
@@ -99,7 +101,7 @@ function Signup() {
           value={formData.confirmPassword}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 mb-6 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 mb-6 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-300"
         />
 
         <button
