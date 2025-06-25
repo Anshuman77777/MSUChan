@@ -11,7 +11,7 @@ function Rules() {
         <li>2. Don't take anything seriously</li>
         <li>3. Avoid posting content that could be harmful, offensive, or controversial, as it may cause trouble for you or others.</li>
         <li>
-          4. For updates related to the website, follow:{" "}
+          4. For updates related to the website,reporting bugs or suggesting features follow:{" "}
           <a
             href="https://www.instagram.com/anshuman.cpp?igsh=emlhanMwZGc3dWE5"
             target="_blank"
