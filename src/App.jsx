@@ -43,7 +43,7 @@ function App() {
         <div className={`${user&&sidebar?'ml-[13%]':''} flex-1 overflow-y-auto `}>
           <Routes>
             {/* ✅ PROTECTED HOME ROUTE */}
-            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+            <Route path="/" element={user ? <Home /> : <Navigate to="/signup" />} />
             {/* ✅ OPEN ROUTES */}
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
