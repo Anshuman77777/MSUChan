@@ -17,7 +17,7 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [sidebar,setSidebar]=useState(true);
+  const [sidebar,setSidebar]=useState(false);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
       setUser(firebaseUser);
