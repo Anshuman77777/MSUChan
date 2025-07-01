@@ -4,7 +4,11 @@ import { toast } from 'react-toastify';
 import { auth } from '../Firebase/firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { UserExists,CreateUser } from '../Firebase/users';
+import { Loader2 } from 'lucide-react';
+
+
 function Signup() {
+  const [loading,setLoading]=useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
@@ -22,7 +26,7 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const { username, email, password, confirmPassword } = formData;
 
     if (password !== confirmPassword) {
@@ -34,6 +38,7 @@ function Signup() {
       const userExists = await UserExists(username);
       if (userExists) {
         toast("USERNAME NOT AVAILABLE",{position:'top-center'});
+        setLoading(false);
         return;
       }
 
@@ -51,6 +56,7 @@ function Signup() {
       console.error("Error during sign-up:", error);
       alert(error.message);
     }
+    setLoading(false);
   };
 
 
@@ -104,12 +110,15 @@ function Signup() {
           className="w-full px-4 py-2 mb-6 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-300"
         />
 
+       {loading?
+       <Loader2 className="w-full h-6 animate-spin  text-blue-500" />
+       :
         <button
           type="submit"
           className="w-full bg-blue-600 font-primary text-white py-2 rounded-md hover:bg-blue-700 transition"
         >
           Sign Up
-        </button>
+        </button>}
         <Link to={"/login"}><div className='flex justify-center h-full text-blue-500'>Log In</div></Link>
     <div class="text-sm font-bold text-3xl text-text-primary italic p-2 ">
     Suggestion: Dont use your real name as username
