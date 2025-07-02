@@ -42,7 +42,7 @@ function App() {
       {user && <Header   setSidebar={setSidebar} />}
       <div className={`flex h-screen ${user ? 'pt-20' : ''}  bg-background`}>
         {user &&sidebar&& <Sidebar/>}
-        <div className={`${user&&sidebar?'ml-[13%]':''} flex-1 overflow-y-auto `}>
+        <div className={`${user&&sidebar?'ml-[11%]':''} flex-1 overflow-y-auto `}>
           <Routes>
             {/* ✅ PROTECTED HOME ROUTE */}
             <Route path="/" element={user ? <Home /> : <Navigate to="/signup" />} />

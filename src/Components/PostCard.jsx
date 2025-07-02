@@ -42,8 +42,8 @@ function PostCard() {
   };
 
   return (
-    <div className='flex-col'>
-      <div className="w-1/1 bg-surface">
+    <div className='flex-col px-2  my-1'>
+      <div className="w-1/1 bg-surface px-2 rounded-xl">
 
 
         <h1 className="text-[30px] font-semibold font-primary text-text-primary mb-2">{Obj.title}</h1>
