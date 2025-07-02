@@ -5,6 +5,7 @@ import { getUser, UpdateUser } from '../Firebase/users';
 import { deleteUser } from 'firebase/auth';
 import { remove,ref } from 'firebase/database';
 import History from '../Components/History';
+import { Link } from 'react-router-dom';
 function Account() {
   const [body, setBody] = useState('');
   const [username, setUsername] = useState('');
@@ -62,8 +63,14 @@ function Account() {
         </button>
 
       </form>
+      <Link to='/change-username'
+          className="bg-surface w-full block my-2 text-center text-white px-4 py-2 rounded hover:bg-background"
+        >
+          Change Username
+        </Link>
       <History />
-      {/* <button className="bg-red-700 text-text-primary" onClick={deleteAcc}>Delete Account</button> */}
+      
+    
     </>
   )
 }

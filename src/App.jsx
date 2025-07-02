@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { auth } from './Firebase/firebase';
 import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import ChangeUsername from './Pages/ChangeUsername';
+import Notifications from './Pages/Notifications';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -48,11 +50,13 @@ function App() {
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
             {/* ✅ PROTECTED ROUTES */}
-            <Route path="/posts" element={user ? <PostCard /> : <Navigate to="/login" />} />
-            <Route path="/activity" element={user ? <Activity /> : <Navigate to="/login" />} />
-            <Route path="/account" element={user ? <Account /> : <Navigate to="/login" />} />
-            <Route path="/create" element={user ? <CreatePost /> : <Navigate to="/login" />} />
-             <Route path="/rules" element={user ? <Rules /> : <Navigate to="/login" />} />
+            <Route path="/posts" element={user ? <PostCard /> : <Navigate to="/signup" />} />
+            <Route path="/activity" element={user ? <Activity /> : <Navigate to="/signup" />} />
+            <Route path="/account" element={user ? <Account /> : <Navigate to="/signup" />} />
+            <Route path="/create" element={user ? <CreatePost /> : <Navigate to="/signup" />} />
+             <Route path="/rules" element={user ? <Rules /> : <Navigate to="/signup" />} />
+             <Route path="/change-username" element={user ? <ChangeUsername /> : <Navigate to="/signup" />}/>
+              <Route path="/notifications" element={user ? <Notifications /> : <Navigate to="/signup" />} /> 
           </Routes>
         </div>
       </div>
