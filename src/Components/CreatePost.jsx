@@ -25,7 +25,7 @@ function CreatePost() {
   };
 
   return (
-    <div className="w-full  bg-surface rounded-lg shadow">
+    <div className="w-80% mx-2 px-2  bg-surface rounded-lg shadow">
       <h1 className="text-xl font-bold mb-4 text-text-primary">Create a Post</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
