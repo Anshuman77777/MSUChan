@@ -1,4 +1,4 @@
-import { ref, update, push, child, query, orderByChild, startAt, limitToFirst, get, orderByValue } from "firebase/database";
+import { ref, update, push, child, query, orderByChild, startAt, limitToFirst, get, orderByValue, startAfter } from "firebase/database";
 import { database } from "./firebase.js"; // Adjust this import based on your setup
 
 export async function updatePost(post, Id) {
@@ -25,16 +25,25 @@ export async function updatePost(post, Id) {
     });
 
 }
-export async function getPaginatedPosts(lastTimestamp) {
+export async function getPaginatedPosts(lastTimestamp,offset) {
   const postsRef = ref(database, 'posts');
 
   // Query to get posts after the last retrieved post, ordered by timestamp
-  const postsQuery = query(
-    postsRef,
-    orderByChild('timestamp'),
-    //startAt(lastTimestamp),  // Start from the last retrieved post's timestamp
-    limitToFirst(20)          // Limit to 20 posts per fetch
-  );
+ let postsQuery;
+ if(lastTimestamp===null)
+ {
+  postsQuery = query(
+      postsRef,
+      orderByChild('timestamp'),
+      limitToFirst(offset)
+    );
+ }
+ else  postsQuery = query(
+      postsRef,
+      orderByChild('timestamp'),
+      startAfter(lastTimestamp),
+      limitToFirst(offset)
+    );
 
   try {
     const snapshot = await get(postsQuery);
@@ -50,7 +59,7 @@ export async function getPaginatedPosts(lastTimestamp) {
       return [];
     }
   } catch (error) {
-   
+   console.log(error.message);
   }
 }
 export async function getPost(postId) {
