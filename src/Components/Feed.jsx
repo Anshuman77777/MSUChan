@@ -10,7 +10,8 @@ function Feed() {
   const[hasMore,setHasMore]=useState(true);
   const loaderRef = useRef();
   const offset =7;
-  // Use useEffect to fetch posts when the component mounts
+ 
+  
  
   const addPosts=async ()=>{
     setLoading(true);
@@ -30,6 +31,7 @@ function Feed() {
       entries => {
         if (entries[0].isIntersecting && hasMore) {
           addPosts();
+           
         }
       },
       { threshold: 1.0 }

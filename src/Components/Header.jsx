@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import { Bell } from 'lucide-react';
+import { Bell ,Menu} from 'lucide-react';
 import { auth } from '../Firebase/firebase';
 import { hasSeenGeneralNotifications } from '../Firebase/notifications';
 function Header({setSidebar}) {
@@ -29,7 +29,7 @@ function Header({setSidebar}) {
       {/* Left: MENU */}
       <div className="navbar-start">
         <button onClick={toggle} className="btn bg-surface text-text-primary font-primary h-10 min-h-10">
-          MENU
+          <Menu/>
         </button>
       </div>
 
@@ -37,7 +37,7 @@ function Header({setSidebar}) {
       <div className="navbar-center">
         <Link
         to='/' className="text-2xl md:text-3xl font-bold font-primary">
-          {emoji} MSU CHAN {emoji}
+        {emoji} MSU  <br className="block sm:hidden" /> CHAN {emoji}
         </Link>
       </div>
 
@@ -49,12 +49,7 @@ function Header({setSidebar}) {
         <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-yellow-500 " />
       )}
     </div>
-        <Link
-          to='/rules'
-          className="btn bg-surface text-text-primary font-primary h-10 min-h-10"
-        >
-          RULES
-        </Link>
+     
       </div>
     </div>
   )

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CommentSection from './CommentSection'
+import { UserRound } from 'lucide-react'
+import { getColorFromString } from '../utils/ProfileColors';
 function PostCard() {
   const location = useLocation();
   const Obj = location.state?.data;
-
+  const bgcolor=getColorFromString(Obj.author);
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
   const [reported, setReported] = useState(false);
@@ -51,7 +53,8 @@ function PostCard() {
         <p className="text-text-primary text-[25px] font-secondary mb-4">{Obj.body}</p>
 
         <div className="flex items-center justify-between text-sm text-text-primary border-t pt-3">
-          <span>Author: <span className="font-medium text-text-secondary">{Obj.author}</span></span>
+          
+          <span>  <span className="font-medium text-text-secondary flex flex-row "><UserRound className='mr-2' style={{ color: bgcolor }}/> {Obj.author}</span></span>
           <span>{new Date(Obj.timestamp * -1).toLocaleDateString()}</span>
         </div>
 

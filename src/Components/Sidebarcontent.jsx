@@ -16,6 +16,11 @@ const sidebardata = [
       logo:'⚙️'
     }
     ,
+     {
+      name: 'Rules',
+      link: '/rules',
+      logo: '🤫'
+    },
     {
       name: 'Logout',
       link: '/login',
