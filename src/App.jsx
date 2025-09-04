@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import ChangeUsername from './Pages/ChangeUsername';
 import Notifications from './Pages/Notifications';
+import Notes from './Pages/Notes';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,14 +36,16 @@ function App() {
       </div>
     );
   }
-
+  const closeSidebar=()=>{
+    setSidebar(false);
+  }
   return (
     <Router>
       <ToastContainer />
       {user && <Header   setSidebar={setSidebar} />}
       <div className={`flex h-screen ${user ? 'pt-20' : ''}  bg-background`}>
-        {user &&sidebar&& <Sidebar/>}
-        <div className={`${user&&sidebar?'ml-[11%]':''} flex-1 overflow-y-auto `}>
+        {user &&sidebar&& <Sidebar setSidebar={setSidebar}/>}
+        <div className={`${user&&sidebar?'ml-[11%]':''} overflow-y-hidden w-full `} onClick={closeSidebar}>
           <Routes>
             {/* ✅ PROTECTED HOME ROUTE */}
             <Route path="/" element={user ? <Home /> : <Navigate to="/signup" />} />
@@ -56,7 +59,8 @@ function App() {
             <Route path="/create" element={user ? <CreatePost /> : <Navigate to="/signup" />} />
              <Route path="/rules" element={user ? <Rules /> : <Navigate to="/signup" />} />
              <Route path="/change-username" element={user ? <ChangeUsername /> : <Navigate to="/signup" />}/>
-              <Route path="/notifications" element={user ? <Notifications /> : <Navigate to="/signup" />} /> 
+              <Route path="/notifications" element={user ? <Notifications /> : <Navigate to="/signup" />} />
+              <Route path="/notes" element={user ? <Notes /> : <Navigate to="/signup" />} /> 
           </Routes>
         </div>
       </div>

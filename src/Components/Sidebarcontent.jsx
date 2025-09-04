@@ -22,6 +22,11 @@ const sidebardata = [
       logo: '🤫'
     },
     {
+      name: 'Notes',
+      link: '/notes',
+      logo: '📒'
+    },
+    {
       name: 'Logout',
       link: '/login',
       logo: '🏃'
