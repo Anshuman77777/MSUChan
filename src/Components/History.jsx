@@ -17,15 +17,16 @@ function History() {
 
     return (
         <>
-            <div className='flex flex-col items-center text-text-primary font-bold'>
+            <div className='flex flex-col items-center text-text-primary  font-bold'>
                 <div className='font-primary'>History</div>
                 </div>
+                <div className='overflow-auto h-full mb-10'>
             {arr.map((res,index)=>
             (
                 <Feedcomponent key={index} Obj={res} />
             ))}
 
-            
+            </div>
         </>
     )
 }
